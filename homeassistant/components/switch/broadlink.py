@@ -347,15 +347,17 @@ class BroadlinkMP11Switch(BroadlinkSP1Switch):
             return self._update(max(0, retry-1))
         self._state = state
 
+
 class BroadlinkMP12Switch(BroadlinkMP11Switch):
     """Representation of an Broadlink switch."""
     MP1_SOCKET = 's2'
+
 
 class BroadlinkMP13Switch(BroadlinkMP11Switch):
     """Representation of an Broadlink switch."""
     MP1_SOCKET = 's3'
 
+
 class BroadlinkMP14Switch(BroadlinkMP11Switch):
     """Representation of an Broadlink switch."""
     MP1_SOCKET = 's4'
-
