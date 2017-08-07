@@ -297,6 +297,7 @@ class BroadlinkSP2Switch(BroadlinkSP1Switch):
 class BroadlinkMP11Switch(BroadlinkSP1Switch):
     """Representation of an Broadlink switch."""
 
+    SOCKET_NUM = 1
     MP1_SOCKET = 's1'
 
     def __init__(self, friendly_name, device):
@@ -313,7 +314,7 @@ class BroadlinkMP11Switch(BroadlinkSP1Switch):
     def _sendpacket(self, packet, retry=2):
         """Send packet to device."""
         try:
-            self._device.set_power(1, packet)
+            self._device.set_power(self.SOCKET_NUM, packet)
         except (socket.timeout, ValueError) as error:
             if retry < 1:
                 _LOGGER.error(error)
@@ -350,14 +351,17 @@ class BroadlinkMP11Switch(BroadlinkSP1Switch):
 
 class BroadlinkMP12Switch(BroadlinkMP11Switch):
     """Representation of an Broadlink switch."""
+    SOCKET_NUM = 2
     MP1_SOCKET = 's2'
 
 
 class BroadlinkMP13Switch(BroadlinkMP11Switch):
     """Representation of an Broadlink switch."""
+    SOCKET_NUM = 3
     MP1_SOCKET = 's3'
 
 
 class BroadlinkMP14Switch(BroadlinkMP11Switch):
     """Representation of an Broadlink switch."""
+    SOCKET_NUM = 4
     MP1_SOCKET = 's4'
